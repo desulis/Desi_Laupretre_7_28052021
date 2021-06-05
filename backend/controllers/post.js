@@ -1,7 +1,14 @@
 const fs = require('fs'); //function file system that allow to modify the file system like delete
-
+const Post = require('../models/post');
 
 //export all function that was in route.js
+
+exports.getAllPost = (req, res, next) => {
+	Post.findAll().then((posts) => {
+		res.status(200).json(posts);
+	})
+};
+
 exports.createPost = (req, res, next) => { 
   const postObject = JSON.parse(req.body.post); //parse Json to get object utilisable
   

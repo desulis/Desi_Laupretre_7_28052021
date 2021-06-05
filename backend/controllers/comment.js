@@ -4,6 +4,10 @@ exports.createComment = (req, res, next) => {
   
 };
 
+exports.getAllComment = (req, res, next) => { 
+  
+};
+
 exports.getOneComment = (req, res, next) => {
   
 };
