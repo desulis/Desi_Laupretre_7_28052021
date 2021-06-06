@@ -11,8 +11,6 @@ module.exports = (req, res, next) => {
 			next(); //continue to other middleware applicated
 		}
 	} catch {
-		res.status(401).json({
-			error: new Error('Invalid request!')
-		});
+		res.status(401).json("Vous devez être connecté");
 	}
 };

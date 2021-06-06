@@ -1,22 +1,26 @@
 <template>
-	<div class="home">
+	<div class="signup">
 		<div class="welcome-msg">
-			<h1>Bonjour !</h1>
+			<h1>Bienvenue au réseau du Groupomania !</h1>
 		</div>
 
-		<form @submit="login">
-			<div class="formulaire">
+		<form @submit="signup">
+			<div class="formulaire" >
 				<div>
-					<label>Nom d'utilisateur : </label>
+					<label>Nom : </label>
+					<input v-model="userName">
+				</div>
+				<div>
+					<label>Email : </label>
 					<input v-model="userEmail">
 				</div>
 				<div>
 					<label>Mot de pass : </label>
-					<input v-model="passUser" type="password">
+					<input v-model="passNew" type="password">
 				</div>
 			</div>
 			<div class="button-sign">
-				<input type="submit" value="Connexion">
+				<input type="submit" value="S'Inscrire">
 			</div>
 		</form>
 	</div>
@@ -27,22 +31,24 @@
 	import router from '../router'
 
 	export default {
-		name: 'Home',
+		name: 'Signup',
 		components: {
 
 		},
 		data() {
 			return {
-				userEmail: 'desi@gmail.com',
-				passUser: 'totoro'
+				userName: "Desi 2",
+				userEmail: 'desi2@gmail.com',
+				passNew: 'salut'
 			}
 		},
 		methods: {
-			login:function(e) {
+			signup:function(e) {
 				e.preventDefault();
-				axios.post('http://localhost:3000/api/user/login', {
+				axios.post('http://localhost:3000/api/user/signup', {
+					name: this.userName,
 					email: this.userEmail,
-					password: this.passUser
+					password: this.passNew
 				} )
 				.then((res) => {
 					localStorage.setItem('token', res.data.token)
@@ -58,7 +64,7 @@
 </script>
 
 <style lang="scss">
-	.home {
+	.signup {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -71,9 +77,9 @@
 		.formulaire {
 			display: flex;
 			flex-direction: column;
-			margin-right: 0;
-			justify-content: center;
+			justify-content: flex-start;
 			align-items: center;
+			align-content: flex-start;
 			gap: 15px;
 		}
 		.button-sign {
