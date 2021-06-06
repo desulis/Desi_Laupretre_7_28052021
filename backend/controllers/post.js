@@ -10,8 +10,11 @@ exports.getAllPost = (req, res, next) => {
 };
 
 exports.createPost = (req, res, next) => { 
-  const postObject = JSON.parse(req.body.post); //parse Json to get object utilisable
-  
+	console.log(req.body)
+	req.body.user = 1
+  	Post.create(req.body).then(() => {
+		res.status(200).json();
+	  })
 };
 
 exports.getOnePost = (req, res, next) => {
