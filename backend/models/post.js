@@ -6,7 +6,7 @@ Post.init({
 	id:{ type: DataTypes.INTEGER, primaryKey: true },
 	article: DataTypes.STRING,
 	image: DataTypes.STRING,
-	user: DataTypes.INTEGER
+	userId: DataTypes.INTEGER
 }, { sequelize, modelName: 'post' });
 
 module.exports = Post;

@@ -1,7 +1,9 @@
+const Comment = require('../models/comment');
 
 exports.createComment = (req, res, next) => { 
-  const postObject = JSON.parse(req.body.post); //parse Json to get object utilisable
-  
+  	Comment.create(req.body).then(() => {
+		res.status(200).json();
+	})
 };
 
 exports.getAllComment = (req, res, next) => { 

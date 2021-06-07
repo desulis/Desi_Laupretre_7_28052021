@@ -11,7 +11,7 @@
 					<input v-model="userEmail">
 				</div>
 				<div>
-					<label>Mot de pass : </label>
+					<label>Mot de passe : </label>
 					<input v-model="passUser" type="password">
 				</div>
 			</div>
@@ -46,18 +46,18 @@
 				} )
 				.then((res) => {
 					localStorage.setItem('token', res.data.token)
-					this.$store.commit('connect')
+					this.$store.commit('connect', res.data.userId)
 					router.push('/')
 				})
 				.catch((error) => {
-					alert(error.response.data);
+					alert(error.response);
 				})
 			},
 		}
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.home {
 		display: flex;
 		flex-direction: column;

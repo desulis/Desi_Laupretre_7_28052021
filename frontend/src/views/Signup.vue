@@ -52,7 +52,7 @@
 				} )
 				.then((res) => {
 					localStorage.setItem('token', res.data.token)
-					this.$store.commit('connect')
+					this.$store.commit('connect', res.data.userId)
 					router.push('/')
 				})
 				.catch((error) => {
