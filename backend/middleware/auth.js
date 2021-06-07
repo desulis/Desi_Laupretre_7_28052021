@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
 		if (req.body.userId && req.body.userId !== userId) { //if the request has same id user as a token then valid ifnot send error
 			throw 'Invalid user ID';
 		} else {
+			req.body.userId = userId
 			next(); //continue to other middleware applicated
 		}
 	} catch {

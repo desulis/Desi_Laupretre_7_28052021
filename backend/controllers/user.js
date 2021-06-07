@@ -46,3 +46,18 @@ exports.login = (req, res, next) => {
 	})
 	.catch(error => res.status(400).json("Utilisateur non trouvé!"));
 };
+
+exports.profil = (req, res, next) => {
+	console.log(req)
+	User.findOne({ where: { id: req.body.userId }}) //find the same email exist in database
+	.then(user => {
+		res.status(200).json(user);
+	}).catch(error => res.status(500).json({ error })); //500 error server
+};
+
+exports.delete = (req, res, next) => { 
+	User.destroy({ where: { id: req.body.userId }})
+  	.then(() => {
+		res.status(200).json();
+	})
+};

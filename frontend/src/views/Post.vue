@@ -16,7 +16,8 @@
 					Par <b>{{ post.user.name }}</b> -
 					{{ new Date(post.createdAt).toLocaleDateString('fr') }}
 					{{ new Date(post.createdAt).toLocaleTimeString('fr') }}
-					<div class="article">{{ post.article }}</div>
+					<button @click="deletePost(post)" value="Supprimer">Supprimer</button>
+					<div class="article" v-html="post.article" v-linkified >{{ post.article }}</div>
 				</div>
 				<img v-if="post.image" :src="post.image">
 				<div class="comment-post">
@@ -38,6 +39,7 @@
 							<input type="submit" value="Commentez !">
 						</div>
 					</form>
+					
 				</div>
 			</div>
 		</div>
@@ -97,6 +99,16 @@
 					.catch((error) => {
 						alert(error.response.data);
 					})
+
+			},
+			deletePost: function (post) {
+				axios.delete('http://localhost:3000/api/post/' + post.id, { headers: { 'Authorization': "Bearer: " + localStorage.getItem('token') }})
+				.then(() => {
+					this.getPosts()
+				})
+				.catch((error) => {
+					alert(error.response.data);
+				})
 			}
 		},
 		created: function () {
@@ -142,13 +154,16 @@ textarea {
 	img {
 		flex: 1;
 		max-height: 290px;
-		background: #eee;
+		background: pink;
 		object-fit: contain;
 	}
 	.article {
-		white-space: pre;
+		white-space: pre-wrap;
 		font-size: 30px;
 		padding: 10px 0;
+		a {
+			text-decoration: underline pink;
+		}
 	}
 }
 input[type='file'] {

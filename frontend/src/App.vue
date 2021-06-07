@@ -5,6 +5,7 @@
 				<img class="logo" src="./assets/icon-above-font.png">
 			</router-link>
 			<div class="nav_router-link">
+				<router-link to="/profil">Profil</router-link> |
 				<router-link to="/">Actualités</router-link> |
 				<router-link v-if="!$store.state.connected" to="/signup">Inscription</router-link>
 				<span v-if="$store.state.connected" @click="logout">Se déconnecter</span>
@@ -42,6 +43,8 @@ body {
 	margin: 0;
 }
 #app {
+	display: flex;
+	flex-direction: column;
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -79,8 +82,11 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	align-self: center;
+	max-width: 720px;
+    min-width: 0;
 	min-height: calc(100vh - 220px);
-	background-image: url("assets/icon-above-font.png"), center, cover, no-repeat;
+
 }
 
 footer {

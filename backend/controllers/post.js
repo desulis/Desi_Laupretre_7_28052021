@@ -6,9 +6,9 @@ const Comment = require('../models/comment');
 //export all function that was in route.js
 
 exports.getAllPost = (req, res, next) => {
-	Post.findAll({
-		include: [
-			{ model: User, attributes: ['name'] },
+	Post.findAll({ //by sequelize
+		include: [ 
+			{ model: User, attributes: ['name'] }, //inside a post = post with user, then comments with user
 			{ model: Comment, include: {
 				model: User, attributes: ['name']
 			}},
@@ -25,7 +25,7 @@ exports.createPost = (req, res, next) => {
 		userId: req.body.userId,
 		article: req.body.article,
 	}
-	if (req.file) {
+	if (req.file) { //if any file choosen, show in list of posts, if not just show a content of article
 		post.image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}` //protocol : get a segment from http, add // and a server host, folder image and filename
 	}
   	Post.create(post).then(() => {
@@ -33,18 +33,10 @@ exports.createPost = (req, res, next) => {
 	})
 };
 
-exports.getOnePost = (req, res, next) => {
-  
+exports.deletePost = (req, res, next) => { 
+	Post.destroy({ where: { id: req.params.id }})
+  	.then(() => {
+		res.status(200).json();
+	})
 };
 
-exports.modifyPost = (req, res, next) => {
-  
-};
-
-exports.deletePost = (req, res, next) => {
-  
-};
-
-exports.getLatestPosts = (req, res, next) => {
-  
-};
