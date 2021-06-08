@@ -9,7 +9,7 @@
 - In each post, other user can put their comments. 
 - User can delete their post and their profil (account).
 - I use MySQL for database and sequelize for configuration.
-- 
+
 ---------------------------------------------------------------
 
 ### Installation
