@@ -37,9 +37,9 @@
 		},
 		data() {
 			return {
-				userName: "Desi 2",
-				userEmail: 'desi2@gmail.com',
-				passNew: 'salut'
+				userName: '',
+				userEmail: '',
+				passNew: ''
 			}
 		},
 		methods: {

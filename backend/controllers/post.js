@@ -33,7 +33,11 @@ exports.createPost = (req, res, next) => {
 	})
 };
 
-exports.deletePost = (req, res, next) => { 
+exports.deletePost = (req, res, next) => {
+	if (!req.body.admin) {
+		res.status(400).json();
+		return
+	}
 	Post.destroy({ where: { id: req.params.id }})
   	.then(() => {
 		res.status(200).json();

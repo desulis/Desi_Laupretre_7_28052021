@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
 			throw 'Invalid user ID';
 		} else {
 			req.body.userId = userId
+			req.body.admin = decodedToken.admin
 			next(); //continue to other middleware applicated
 		}
 	} catch {

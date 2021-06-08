@@ -33,8 +33,8 @@
 		},
 		data() {
 			return {
-				userEmail: 'desi@gmail.com',
-				passUser: 'totoro'
+				userEmail: '',
+				passUser: ''
 			}
 		},
 		methods: {

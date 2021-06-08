@@ -99,7 +99,6 @@
 					.catch((error) => {
 						alert(error.response.data);
 					})
-
 			},
 			deletePost: function (post) {
 				axios.delete('http://localhost:3000/api/post/' + post.id, { headers: { 'Authorization': "Bearer: " + localStorage.getItem('token') }})
@@ -124,52 +123,52 @@
 
 <style lang="scss">
 
-form {
-	display: flex;
-	flex-direction: column;
-	
-}
-textarea {
-	min-height: 100px;
-	margin: 5px 0;
-}
-.button-post {
-	align-self: center;
-}
-
-.posts {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.post {
-	padding: 15px;
-	border: 1px solid #aaa;
-	display: flex;
-	flex-direction: column;
-	border-radius: 5px;
-	background: white;
-
-	img {
-		flex: 1;
-		max-height: 290px;
-		background: pink;
-		object-fit: contain;
+	form {
+		display: flex;
+		flex-direction: column;
+		
 	}
-	.article {
-		white-space: pre-wrap;
-		font-size: 30px;
-		padding: 10px 0;
-		a {
-			text-decoration: underline pink;
+	textarea {
+		min-height: 100px;
+		margin: 5px 0;
+	}
+	.button-post {
+		align-self: center;
+	}
+
+	.posts {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.post {
+		padding: 15px;
+		border: 1px solid #aaa;
+		display: flex;
+		flex-direction: column;
+		border-radius: 5px;
+		background: white;
+
+		img {
+			flex: 1;
+			max-height: 290px;
+			background: pink;
+			object-fit: contain;
+		}
+		.article {
+			white-space: pre-wrap;
+			font-size: 30px;
+			padding: 10px 0;
+			a {
+				text-decoration: underline pink;
+			}
 		}
 	}
-}
-input[type='file'] {
-	background: white;
-	border: 1px solid #777;
-	margin-bottom: 10px;
-	padding: 5px;
-}
+	input[type='file'] {
+		background: white;
+		border: 1px solid #777;
+		margin-bottom: 10px;
+		padding: 5px;
+	}
 </style>

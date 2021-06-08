@@ -10,7 +10,7 @@ exports.signup = (req, res, next) => {
 			res.status(200).json({
 				userId: user.id,
 				token: jwt.sign( //use a sign function of jsonwebtoken to generate a token
-				  { userId: user.id }, //this token has an id as a payload (a data generate from token)
+				  { userId: user.id, admin: user.admin }, //this token has an id as a payload (a data generate from token)
 				  process.env.JWT_SECRET, //temporary keyword to generate the token in .env
 				  { expiresIn: '24h' }
 				)
@@ -36,7 +36,7 @@ exports.login = (req, res, next) => {
 			res.status(200).json({
 				userId: user.id,
 				token: jwt.sign( //use a sign function of jsonwebtoken to generate a token
-				  { userId: user.id }, //this token has an id as a payload (a data generate from token)
+				  { userId: user.id, admin: user.admin }, //this token has an id as a payload (a data generate from token)
 				  process.env.JWT_SECRET, //temporary keyword to generate the token in .env
 				  { expiresIn: '24h' }
 				)
