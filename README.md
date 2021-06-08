@@ -14,26 +14,38 @@
 
 ### Installation
 
+```
 $ npm install -g @vue/cli
 #OR yarn
 yarn global add @vue/cli
+```
 
 ### Project creation
+```
 vue create Groupomania-project
+```
 
 #Start localhost:
+```
 $ npm run serve
+```
 
 #Install router vue:
+```
 vue add router
+```
 
 #AXIOS:
 Promise based HTTP client for the browser and node.js
+```
 $ npm install axios
+```
 
 #Sequelize:
 To create a models that represent database in MySQL. A model is an abstraction that represents a table in database. In Sequelize, it is a class that extends Model.
+```
 $ npm install --save sequelize
+```
 
 
 
