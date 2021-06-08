@@ -16,7 +16,10 @@
 ```
 git clone https://github.com/desulis/Desi_Laupretre_7_28052021.git
 ```
-
+Database
+```
+Import MySQL database from Dump
+```
 Frontend
 ```
 cd frontend
