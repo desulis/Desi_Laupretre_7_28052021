@@ -9,6 +9,7 @@ exports.signup = (req, res, next) => {
 		User.create({ name: req.body.name, email: req.body.email, password: hash }).then((user) => {
 			res.status(200).json({
 				userId: user.id,
+				admin: user.admin,
 				token: jwt.sign( //use a sign function of jsonwebtoken to generate a token
 				  { userId: user.id, admin: user.admin }, //this token has an id as a payload (a data generate from token)
 				  process.env.JWT_SECRET, //temporary keyword to generate the token in .env
@@ -35,6 +36,7 @@ exports.login = (req, res, next) => {
 			}
 			res.status(200).json({
 				userId: user.id,
+				admin: user.admin,
 				token: jwt.sign( //use a sign function of jsonwebtoken to generate a token
 				  { userId: user.id, admin: user.admin }, //this token has an id as a payload (a data generate from token)
 				  process.env.JWT_SECRET, //temporary keyword to generate the token in .env

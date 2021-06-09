@@ -7,12 +7,16 @@ const store = new Vuex.Store({
 	state: {
 		connected: localStorage.getItem('token') !== null,
 		userId: parseInt(localStorage.getItem('userId')),
+		admin: !!localStorage.getItem('admin')
 	},
 	mutations: {
-		connect (state, userId) {
+		connect (state, data) {
 			state.connected = true
-			state.userId = userId
-			localStorage.setItem('userId', userId)
+			state.userId = data.userId
+			state.admin = data.admin
+			localStorage.setItem('token', data.token)
+			localStorage.setItem('userId', data.userId)
+			localStorage.setItem('admin', data.admin)
 		},
 		disconnect (state) {
 			state.connected = false

@@ -16,7 +16,7 @@
 					Par <b>{{ post.user.name }}</b> -
 					{{ new Date(post.createdAt).toLocaleDateString('fr') }}
 					{{ new Date(post.createdAt).toLocaleTimeString('fr') }}
-					<button @click="deletePost(post)" value="Supprimer">Supprimer</button>
+					<button v-if="$store.state.admin || post.user.id === $store.state.userId" @click="deletePost(post)" value="Supprimer">Supprimer</button>
 					<div class="article" v-html="post.article" v-linkified >{{ post.article }}</div>
 				</div>
 				<img v-if="post.image" :src="post.image">

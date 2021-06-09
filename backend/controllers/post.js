@@ -8,7 +8,7 @@ const Comment = require('../models/comment');
 exports.getAllPost = (req, res, next) => {
 	Post.findAll({ //by sequelize
 		include: [ 
-			{ model: User, attributes: ['name'] }, //inside a post = post with user, then comments with user
+			{ model: User, attributes: [ 'id', 'name'] }, //inside a post = post with user, then comments with user
 			{ model: Comment, include: {
 				model: User, attributes: ['name']
 			}},

@@ -45,8 +45,7 @@
 					password: this.passUser
 				} )
 				.then((res) => {
-					localStorage.setItem('token', res.data.token)
-					this.$store.commit('connect', res.data.userId)
+					this.$store.commit('connect', res.data)
 					router.push('/')
 				})
 				.catch((error) => {

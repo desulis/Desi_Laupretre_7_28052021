@@ -15,7 +15,7 @@
 					<input v-model="userEmail">
 				</div>
 				<div>
-					<label>Mot de pass : </label>
+					<label>Mot de passe : </label>
 					<input v-model="passNew" type="password">
 				</div>
 			</div>
@@ -51,8 +51,7 @@
 					password: this.passNew
 				} )
 				.then((res) => {
-					localStorage.setItem('token', res.data.token)
-					this.$store.commit('connect', res.data.userId)
+					this.$store.commit('connect', res.data)
 					router.push('/')
 				})
 				.catch((error) => {
